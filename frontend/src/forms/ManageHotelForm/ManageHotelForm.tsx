@@ -1,7 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form";
 import DetailsSection from "./DetailsSection";
 import TypeSection from "./TypeSection";
-import Facilities from "./FacilitiesSection";
+import FacilitiesSection from "./FacilitiesSection";
 import GuestsSection from "./GuestsSection";
 import ImagesSection from "./ImagesSection";
 import { HotelType } from "../../../../backend/src/shared/types";
@@ -37,7 +37,6 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
   }, [hotel, reset]);
 
   const onSubmit = handleSubmit((formDataJson: HotelFormData) => {
-    //create new FormData object
     const formData = new FormData();
     if (hotel) {
       formData.append("hotelId", hotel._id);
@@ -74,7 +73,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
       <form className="flex flex-col gap-10" onSubmit={onSubmit}>
         <DetailsSection />
         <TypeSection />
-        <Facilities />
+        <FacilitiesSection />
         <GuestsSection />
         <ImagesSection />
         <span className="flex justify-end">
